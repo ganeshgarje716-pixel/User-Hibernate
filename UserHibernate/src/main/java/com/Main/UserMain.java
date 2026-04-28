@@ -1,8 +1,10 @@
 package com.Main;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.Cntroller.UserController;
+import com.Exception.UserNotFoundException;
 import com.entity.User;
 
 public class UserMain {
@@ -22,9 +24,9 @@ public class UserMain {
 			
 			
 			System.out.println("1.Insert User");
-			System.out.println("2.Update User By Id");
-			System.out.println("3.Delete User By Id");
-			System.out.println("4.Get User By Email");
+			System.out.println("2.Get User By Id");
+			System.out.println("3.Update User By Id");
+			System.out.println("4.Delete User By Id");
 			System.out.println("5.Get All User");
 			System.out.println("6.Exit");
 			
@@ -77,6 +79,40 @@ public class UserMain {
 			
 			
 			
+			else if (no ==2) {
+				
+				
+				System.out.println("Enter Id = ");
+				int id=sc.nextInt();
+				
+				try {
+					
+					System.out.println(controller.get(id));
+				} 
+				catch (UserNotFoundException e) {
+					
+					System.out.println(e.getMessage());
+				}
+				
+					
+			break;	
+			}
+			
+			
+			
+			else if (no == 3) {
+				
+				
+				List<User> users = controller.getAll();
+				
+				for (User user : users) {
+					
+					System.out.println(user);
+					
+				}
+				
+			break;	
+			}
 		}
 		
 		

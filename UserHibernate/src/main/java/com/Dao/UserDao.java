@@ -1,5 +1,7 @@
 package com.Dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -18,9 +20,9 @@ public class UserDao {
 	public String saveUser(User user) {
 		
 		
-		Session session = sf.openSession();
+		Session session = sf.openSession();  // save, update, delete, get
 		
-		Transaction tr  = session.beginTransaction();
+		Transaction tr  = session.beginTransaction(); // insert, update, delete
 		
 //		session.save(user);
 		
@@ -34,13 +36,25 @@ public class UserDao {
 	}
 	
 	
-	public void getUser(int id) {
+	public User getUser(int id) {
 		
-		Session session = sf.openSession();
+		Session session = sf.openSession(); // save, update, delete, get
 		
 		User user = session.get(User.class, id);
 		
-		return 
+		return user;
+	}
+	
+	
+	
+
+	public List<User> getAllUsers() {
+		
+		Session session = sf.openSession();
+		
+		List<User> user = session.createQuery("from User").list();
+		
+        return user;	
 	}
 	
 	
