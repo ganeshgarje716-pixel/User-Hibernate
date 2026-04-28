@@ -30,5 +30,17 @@ public class UserController {
 	}
 	
 	
+	public String update(User user) {
+		
+		return service.update(user);
+	}
+	
+	
+	public String delete(int id) {
+		
+		return service.delete(id);
+	}
+	
+	
 
 }

@@ -3,6 +3,7 @@ package com.Service;
 import java.util.List;
 
 import com.Dao.UserDao;
+import com.Exception.IdIsNotExistingException;
 import com.Exception.UserNotFoundException;
 import com.entity.User;
 
@@ -36,6 +37,18 @@ public class UserService {
 	public List<User> getAll() {
 		
 		return dao.getAllUsers();
+	}
+	
+	
+	public String update(User user) {
+		
+		 return dao.updateById(user);
+	}
+	
+	
+	public String delete(int id) {
+		
+		return dao.delete(id);
 	}
 	
 	
